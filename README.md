@@ -5,13 +5,20 @@ Es un sitio web diseñado en Angular 2 destinado a agilizar el proceso de gestio
 
 ![alt text](https://github.com/Armocidautn/TP_lab4/blob/master/screenshot.png?raw=true)
 
-# componentes utilizados
+
+
+
+### componentes utilizados
+
+
+```
 Google maps(npm install @agm/core | google-maps)
 Chart.js (npm install ng2-charts --save)
 Exportar archivo a formato Excel
 Exportar archivo a formato Pdf
 
 
+```
 
 ## Autor
 
