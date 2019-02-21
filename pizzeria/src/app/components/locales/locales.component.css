@@ -1,0 +1,33 @@
+.sebm-google-map-container {
+  height: 300px;
+}
+
+.contenedor{
+	background-color: #FFDEAD;
+	padding: 30px;
+	border-radius: 10px;
+}
+
+.seleccion:hover{
+	background-color: #D2691E !important;
+
+}
+
+.navbar-brand
+{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin:0 auto;
+
+
+}
+.navbar-toggle {
+  z-index:3;
+}
+
+h4{
+
+  color:white;
+}

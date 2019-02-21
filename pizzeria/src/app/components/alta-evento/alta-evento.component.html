@@ -1,0 +1,146 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);    ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+     <a  class="navbar-brand"  href="#" style="color:black"></a>
+      <a routerLink="/login">  <img  src="../../assets/img/logo.png" style="height: 4.2rem;"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" style="color: black;">
+    <li ><a routerLink="/cliente" routerLinkActive="active">Clientes</a></li>
+    <li ><a routerLink="/alta-pedido" routerLinkActive="active">Pedido</a></li>
+      <li><a routerLink="/alta-reserva" routerLinkActive="active">Reserva</a></li>
+      <li class="active"><a routerLink="/alta-evento" routerLinkActive="active">Evento</a></li>
+      <li><a routerLink="/locales" routerLinkActive="active">Locales</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#myModal2" style="cursor:pointer"><span class=" glyphicon glyphicon-log-out"></span> Cerrar sesion</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+ <br>
+ <br>
+ <br>
+ <br>
+
+<div align="center"   *ngIf="loading">
+<img src="https://www.pizzahut.lk/Images/loading.gif" />
+</div>
+
+
+<div *ngIf="mostrar">
+<div class="container contenedor" style="background-color: rgba(0, 0, 0, 0.7);">
+<table class="row container" style="width: 100%; margin: 0 auto;" [mfData]="datos" #mf="mfDataTable" [mfRowsOnPage]="5" (mfSelectedEntities)="setSelectedEntities($event)">
+    <thead class="panel panel-info">
+        <tr>
+            <th>
+                <mfRowSelectorHead></mfRowSelectorHead>
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="name">Descripcíón</mfDefaultSorter>
+            </th>
+            <th style="width: 20%">
+                <mfDefaultSorter by="precio">Precio</mfDefaultSorter>
+            </th>
+            <th style="width: 40%">
+                <mfDefaultSorter by="cantidad">Cantidad</mfDefaultSorter>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="panel panel-body">
+        <tr *ngFor="let item of mf.data; let ndx = index">
+            <td><mfRowSelector [entity]="item" [checkboxId]="ndx"></mfRowSelector></td>
+            <td>{{item.descripcion}}</td>
+            <td>${{item.precio}}</td>
+            <td><input type="number" [(ngModel)]="item.cantidad"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="form-group">
+    <label for="name" class="cols-sm-2 control-label">Fecha</label>
+    <div class="cols-sm-10">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+            <input type="date" [(ngModel)]="evento.fecha" class="form-control" name="nombre" id="nombre"/>
+            <input type="time" [(ngModel)]="evento.hora" class="form-control" name="apellido" id="apellido"/>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label for="password" class="cols-sm-2 control-label">Local  </label>
+    <div class="cols-sm-10">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-home fa-lg" aria-hidden="true"></i></span>
+            <select class="form-control" [(ngModel)]="evento.id_local" name="local" required>
+              <option value="1">Av. Centenario 512</option>
+              <option value="2">Alvear 2894</option>
+              <option value="3">Av. Rivadavia 11704</option>
+              <option value="4">Av. Galicia 597</option>
+          </select>
+        </div>
+    </div>
+</div>
+    <a align="left" target="_blank" data-toggle="modal" data-target="#myModal" type="button" (click)="Enviar()" class="btn btn-primary btn-lg btn-block login-button">Comprar</a>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Gracias por reservar el evento!</h4>
+        </div>
+        <div class="modal-body">
+          <p>¡¡ Lo esperamos !!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+
+
+
+
+    <div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog ">
+
+    <!-- Modal content-->
+    <div class="modal-content modal-content-fluid ">
+      <div class="modal-header"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);color:white;    ">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Nuestras pizzerias</h4>
+      </div>
+      <div class="modal-body">
+<br>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNuvxEpqhx67WcrIXZnXNyc8Pukj8wDoaasSYGoX4gur4I0A/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Cargando...</iframe>
+      </div>
+      <div class="modal-footer"style="background-color:#8e4b2f;">
+        <button type="button" [routerLink]="[]" (click)="salir()" routerLinkActive="active" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

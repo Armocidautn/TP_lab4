@@ -1,0 +1,73 @@
+
+  
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);    ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+     <a  class="navbar-brand"  href="#" style="color:black"></a>
+      <a routerLink="/login">  <img  src="../../assets/img/logo.png" style="height: 4.2rem;"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" style="color: black;">
+        <li class="active"><a routerLink="/encargado" routerLinkActive="active">Encargado</a></li>
+       <li><a routerLink="/abmempleados" routerLinkActive="active">ABM Empleados</a></li>
+      <li><a routerLink="/abmpedidos" routerLinkActive="active">ABM Pedidos</a></li>
+      <li><a routerLink="/abmproductos" routerLinkActive="active">ABM Productos</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="[]" (click)="salir()" routerLinkActive="active"><span class=" glyphicon glyphicon-log-out"></span> Cerrar sesion</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container contenedor">
+    <br>
+    <div class="row container">
+        <div (click) = "abmEmpleados()" class="col-md-4">
+            <div class="panel panel-info" style="cursor: pointer;">
+				<div class="panel-heading" style="background: #8e4b2f;">
+				    <h4 class="">Empleados</h4>
+				</div>
+				<div class="panel-body">
+				    Modificación de empleados.
+					<hr>
+				    <img src="../../assets/img/abmusuarios.jpg" alt="" class="img-rounded img-responsive">
+				</div>
+				<!-- <div class="panel-footer">Panel footer</div> -->
+			</div>
+        </div>
+        <div (click) = "abmPedidos()" class="col-md-4">
+            <div class="panel panel-info" style="cursor: pointer;">
+                <div class="panel-heading" style="background: #8e4b2f;">
+                    <h4 class="">ABM Pedidos</h4>
+                </div>
+                <div class="panel-body">
+					Alta, baja y modificación de pedidos.
+					<br><hr>
+					<img src="../../assets/img/abmpedidos.jpg" alt="" class="img-rounded img-responsive">
+                </div>
+            </div>
+        </div>
+        <div (click) = "abmProductos()" class="col-md-4">
+            <div class="panel panel-info" style="cursor: pointer;">
+                <div class="panel-heading" style="background: #8e4b2f;">
+                    <h4 class="">ABM Productos</h4>
+                </div>
+                <div class="panel-body">
+					Alta, baja y modificación de productos.
+					<br><hr>
+					<img src="../../assets/img/abmproductos.jpg" alt="" class="img-rounded img-responsive">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

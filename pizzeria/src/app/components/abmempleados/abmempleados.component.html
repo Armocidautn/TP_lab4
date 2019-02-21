@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);    ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+     <a  class="navbar-brand"  href="#" style="color:black"></a>
+      <a routerLink="/login">  <img  src="../../assets/img/logo.png" style="height: 4.2rem;"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" style="color: black;">
+        <li ><a routerLink="/encargado" routerLinkActive="active">Encargado</a></li>
+     <li class="active"><a routerLink="/abmempleados" routerLinkActive="active">ABM Empleados</a></li>
+      <li><a routerLink="/abmpedidos" routerLinkActive="active">ABM Pedidos</a></li>
+      <li><a routerLink="/abmproductos" routerLinkActive="active">ABM Productos</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="[]" (click)="salir()" routerLinkActive="active"><span class=" glyphicon glyphicon-log-out"></span> Cerrar sesion</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body class="container" style="border-radius: 10px; color:darksalmon; background-color: rgba(0, 0, 0, 0.8);">
+  {{title}}
+  <ng2-smart-table 
+    [settings]="settings"
+    [source]="source"
+    (editConfirm)='editar($event)'
+    (edit)='editar($event)'
+    (userRowSelect)='cmselection($event)'
+    (createConfirm)='agregar($event)'
+    (deleteConfirm)='borrar($event)'
+    (delete)='borrar($event)'
+  ></ng2-smart-table>
+</body>
+<br><br>
+<a class="btn btn-primary btn-block" (click)='exportar()'> Exportar Grilla en Excel</a>
+<a class="btn btn-primary  btn-block" (click)='convert()'> Exportar Grilla en PDF</a>
+
+
+
+</html>

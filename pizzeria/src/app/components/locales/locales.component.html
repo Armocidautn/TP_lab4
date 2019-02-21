@@ -1,0 +1,120 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" >
+  <div class="container-fluid"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);    ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+     <a  class="navbar-brand"  href="#" style="color:black"></a>
+      <a routerLink="/login">  <img  src="../../assets/img/logo.png" style="height: 4.2rem;"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" style="color: black;">
+    <li ><a routerLink="/cliente" routerLinkActive="active">Clientes</a></li>
+    <li ><a routerLink="/alta-pedido" routerLinkActive="active">Pedido</a></li>
+      <li ><a routerLink="/alta-reserva" routerLinkActive="active">Reserva</a></li>
+      <li ><a routerLink="/alta-evento" routerLinkActive="active">Evento</a></li>
+      <li class="active"><a routerLink="/locales" routerLinkActive="active">Locales</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a data-toggle="modal" data-target="#myModal2" style="cursor:pointer"><span class=" glyphicon glyphicon-log-out"></span> Cerrar sesion</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+ <br>
+ <br>
+ <br>
+ <br>
+<div class="container contenedor" style="background-color: rgba(0, 0, 0, 0.7);">
+    <br>
+    <div class="row container"  style="width: 100%; margin: 0 auto;">
+        <div (click) = "centenario()" class="col-md-3">
+            <div class="panel panel-info" style="cursor: pointer;">
+        <div class="panel-heading" style="background: #8e4b2f;">
+            <h4 class="">Av. Centenario 512</h4>
+        </div>
+        <div class="panel-body seleccion">
+            <img src="../../assets/img/Pizzerias/Solera.jpg" alt="" class="img-rounded img-responsive">
+        </div>
+        <!-- <div class="panel-footer">Panel footer</div> -->
+      </div>
+        </div>
+        <div (click) = "alvear()" class="col-md-3">
+            <div class="panel panel-info" style="cursor: pointer;">
+                <div class="panel-heading" style="background: #8e4b2f;">
+                    <h4 class="">Alvear 2894</h4>
+                </div>
+                <div class="panel-body seleccion">
+          <img src="../../assets/img/Pizzerias/LaVitola.jpg" alt="" class="img-rounded img-responsive">
+                </div>
+            </div>
+        </div>
+        <div (click) = "rivadavia()" class="col-md-3">
+            <div class="panel panel-info" style="cursor: pointer;">
+                <div class="panel-heading" style="background: #8e4b2f;">
+                    <h4 class="">Av. Rivadavia 11704</h4>
+                </div>
+                <div class="panel-body seleccion">
+                    <img src="../../assets/img/Pizzerias/ProntoPizza.jpg" alt="" class="img-rounded img-responsive">
+                </div>
+                <!-- <div class="panel-footer">Panel footer</div> -->
+            </div>
+        </div>
+        <div (click) = "galicia()" class="col-md-3">
+            <div class="panel panel-info" style="cursor: pointer;">
+                <div class="panel-heading" style="background: #8e4b2f;">
+                    <h4 class="">Av. Galicia 597</h4>
+                </div>
+                <div class="panel-body seleccion">
+                    <img src="../../assets/img/Pizzerias/LaRey.jpg" alt="" class="img-rounded img-responsive">
+                </div>
+                <!-- <div class="panel-footer">Panel footer</div> -->
+            </div>
+        </div>
+        <div class="container" style="width: 100%; margin: 0 auto;">
+      <div class="form-group">
+        <input placeholder="Enter source location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #pickupInput [formControl]="destinationInput">
+        <input placeholder="Enter destination" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" [(ngModel)]="locacion" class="form-control" #pickupOutput [formControl]="destinationOutput" >
+      </div>
+       <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"  >
+                <!-- <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [iconUrl]="iconurl">
+                    <sebm-google-map-info-window>
+                        <strong>InfoWindow content</strong>
+                    </sebm-google-map-info-window>
+                </sebm-google-map-marker> -->
+                <sebm-google-map-directions [origin]="origin" [destination]="destination">
+                  <sebm-google-map-info-window [disableAutoPan]="true">
+                    Hi, this is the content of the <strong>info window</strong>
+                  </sebm-google-map-info-window>
+
+                </sebm-google-map-directions>
+              </sebm-google-map>
+    </div>
+    </div>
+</div>
+
+      <div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog ">
+
+    <!-- Modal content-->
+    <div class="modal-content modal-content-fluid ">
+      <div class="modal-header"style="background:linear-gradient(to bottom, #733426 0%, #8e4b2f 100%);color:white;    ">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Nuestras pizzerias</h4>
+      </div>
+      <div class="modal-body">
+<br>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNuvxEpqhx67WcrIXZnXNyc8Pukj8wDoaasSYGoX4gur4I0A/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Cargando...</iframe>
+      </div>
+      <div class="modal-footer"style="background-color:#8e4b2f;">
+        <button type="button" [routerLink]="[]" (click)="salir()" routerLinkActive="active" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
